@@ -1,14 +1,33 @@
-import React from "react";
-import "./App.css";
-import "./Font.css";
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div>
-      <div className="Font-title">안녕</div>
-      <div style={{ fontSize: "50px", color: "blue" }}>반가워</div>
-    </div>
-  );
+class App extends Component {
+  changeFocus = () => {
+    this.input.focus();
+    this.mydiv.style.backgroundColor = "yellow";
+  };
+
+  render() {
+    return (
+      <div>
+        <input
+          ref={(ref) => {
+            this.input = ref;
+          }}
+          type="text"
+          placeholder="Username"
+        />
+        <input type="text" placeholder="Password" />
+        <div
+          ref={(ref) => {
+            this.mydiv = ref;
+          }}
+        >
+          ddd
+        </div>
+        <button onClick={this.changeFocus}>포커스 이동</button>
+      </div>
+    );
+  }
 }
 
 export default App;
